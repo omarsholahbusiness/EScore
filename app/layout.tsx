@@ -23,14 +23,14 @@ const playpenSansArabic = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "easy math",
+  title: "EScore",
   description: "منصة تعليمية متكاملة",
   icons: {
     icon: [
-      { url: '/icon.png', type: 'image/png' },
+      { url: '/logo.png', type: 'image/png' },
     ],
-    shortcut: '/icon.png',
-    apple: '/icon.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
 };
 
