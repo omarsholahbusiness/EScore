@@ -23,7 +23,7 @@ const playpenSansArabic = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "EScore",
+  title: "E Score",
   description: "منصة تعليمية متكاملة",
   icons: {
     icon: [

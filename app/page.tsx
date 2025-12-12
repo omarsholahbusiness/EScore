@@ -226,7 +226,7 @@ export default function HomePage() {
             className="text-center mt-0 md:mt-0 order-2 md:order-1"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ color: '#2f51a8' }}>
-              منصة EScore
+              منصة E Score
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
               طوّر لغتك… طوّر مستقبلك

@@ -227,7 +227,7 @@ export default function SignUpPage() {
             </div>
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-[#2f51a8]">
-                مرحباً بك في EScore التعليمية
+                مرحباً بك في E Score التعليمية
               </h3>
               <p className="text-lg text-muted-foreground max-w-md">
                 انضم إلينا اليوم وابدأ رحلة التعلم مع أفضل المدرسين
