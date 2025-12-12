@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useCallback, forwardRef, useImperativeHandle } from "react";
 
 declare global {
   interface Window {
@@ -21,13 +21,17 @@ interface ReCaptchaV2Props {
   size?: "normal" | "compact";
 }
 
-export function ReCaptchaV2({ 
+export interface ReCaptchaV2Ref {
+  reset: () => void;
+}
+
+export const ReCaptchaV2 = forwardRef<ReCaptchaV2Ref, ReCaptchaV2Props>(({ 
   siteKey, 
   onVerify, 
   onExpire,
   theme = "light",
   size = "normal"
-}: ReCaptchaV2Props) {
+}, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<number | null>(null);
   const scriptLoadedRef = useRef(false);
@@ -133,6 +137,23 @@ export function ReCaptchaV2({
     };
   }, [siteKey, handleVerify, handleExpire, theme, size]);
 
+  // Expose reset method via ref
+  useImperativeHandle(ref, () => ({
+    reset: () => {
+      if (widgetIdRef.current !== null && window.grecaptcha) {
+        try {
+          window.grecaptcha.reset(widgetIdRef.current);
+          // Call onExpire to notify parent that token is cleared
+          if (onExpire) {
+            onExpire();
+          }
+        } catch (error) {
+          console.error("Error resetting reCAPTCHA:", error);
+        }
+      }
+    },
+  }));
+
   return (
     <div className="flex justify-center my-4">
       <div 
@@ -142,5 +163,7 @@ export function ReCaptchaV2({
       />
     </div>
   );
-}
+});
+
+ReCaptchaV2.displayName = "ReCaptchaV2";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,10 +17,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ReCaptchaV2 } from "@/components/recaptcha-v2";
+import { ReCaptchaV2, ReCaptchaV2Ref } from "@/components/recaptcha-v2";
 
 export default function SignUpPage() {
   const router = useRouter();
+  const recaptchaRef = useRef<ReCaptchaV2Ref>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -156,9 +157,9 @@ export default function SignUpPage() {
           : JSON.stringify(axiosError.response.data);
           
         if (errorMessage.includes("Phone number already exists")) {
-          toast.error("رقم الهاتف مسجل مسبقاً");
+          toast.error("رقم الهاتف مسجل مسبقاً. يرجى استخدام رقم آخر أو تسجيل الدخول");
         } else if (errorMessage.includes("Parent phone number already exists")) {
-          toast.error("رقم هاتف الوالد مسجل مسبقاً");
+          toast.error("رقم هاتف ولي الأمر مسجل مسبقاً. يرجى استخدام رقم آخر");
         } else if (errorMessage.includes("Phone number cannot be the same as parent phone number")) {
           toast.error("رقم الهاتف لا يمكن أن يكون نفس رقم هاتف الوالد");
         } else if (errorMessage.includes("Passwords do not match")) {
@@ -169,10 +170,26 @@ export default function SignUpPage() {
           toast.error("يرجى التحقق من أنك لست روبوت");
           setRecaptchaToken(null);
           setRecaptchaError(true);
+          // Reset reCAPTCHA widget
+          if (recaptchaRef.current) {
+            recaptchaRef.current.reset();
+          }
+        } else if (errorMessage.includes("reCAPTCHA token expired") || errorMessage.includes("reCAPTCHA token is invalid")) {
+          toast.error("انتهت صلاحية التحقق. يرجى التحقق مرة أخرى");
+          setRecaptchaToken(null);
+          setRecaptchaError(true);
+          // Reset reCAPTCHA widget so user can verify again
+          if (recaptchaRef.current) {
+            recaptchaRef.current.reset();
+          }
         } else if (errorMessage.includes("reCAPTCHA")) {
           toast.error("فشل التحقق من أنك لست روبوت. يرجى المحاولة مرة أخرى");
           setRecaptchaToken(null);
           setRecaptchaError(true);
+          // Reset reCAPTCHA widget
+          if (recaptchaRef.current) {
+            recaptchaRef.current.reset();
+          }
         } else {
           toast.error(`حدث خطأ أثناء إنشاء الحساب: ${errorMessage}`);
         }
@@ -461,6 +478,7 @@ export default function SignUpPage() {
                   </p>
                 )}
                 <ReCaptchaV2
+                  ref={recaptchaRef}
                   siteKey={recaptchaSiteKey}
                   onVerify={handleRecaptchaVerify}
                   onExpire={handleRecaptchaExpire}

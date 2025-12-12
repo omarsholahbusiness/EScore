@@ -154,7 +154,7 @@ export default function BalancePage() {
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-lg mb-1">فودافون كاش</h3>
-                <p className="text-2xl font-bold text-[#2f51a8] mb-2" dir="ltr">01211143632</p>
+                <p className="text-2xl font-bold text-[#2f51a8] mb-2" dir="ltr">01285949747</p>
                 <p className="text-sm text-muted-foreground">
                   قم بتحويل المبلغ المطلوب عبر فودافون كاش
                 </p>
@@ -176,7 +176,7 @@ export default function BalancePage() {
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-[#2f51a8]"></div>
-                    <span className="font-semibold" dir="ltr">01211143632</span>
+                    <span className="font-semibold" dir="ltr">0104 054 8449</span>
                   </div>
                 </div>
                 <div className="mt-4">
@@ -185,7 +185,7 @@ export default function BalancePage() {
                     className="bg-green-600 hover:bg-green-700 text-white"
                   >
                     <a
-                      href={`https://wa.me/201211143632`}
+                      href={`https://wa.me/201040548449`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
