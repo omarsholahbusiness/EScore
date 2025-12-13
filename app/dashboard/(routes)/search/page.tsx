@@ -210,7 +210,7 @@ export default async function SearchPage({
                                 />
                             </div>
                             <Button 
-                                className="h-12 px-6 bg-[#2f51a8] hover:bg-[#2f51a8]/90 text-white font-semibold"
+                                className="h-12 px-6 bg-[#361e01] hover:bg-[#361e01]/90 text-white font-semibold"
                                 disabled
                             >
                                 <Search className="h-4 w-4 ml-2" />
@@ -304,7 +304,7 @@ export default async function SearchPage({
                                 </div>
                                 
                                 <Button 
-                                    className="w-full bg-[#2f51a8] hover:bg-[#2f51a8]/90 text-white font-semibold py-3 text-base transition-all duration-200 hover:scale-105" 
+                                    className="w-full bg-[#361e01] hover:bg-[#361e01]/90 text-white font-semibold py-3 text-base transition-all duration-200 hover:scale-105" 
                                     variant="default"
                                     asChild
                                 >
@@ -340,7 +340,7 @@ export default async function SearchPage({
                                 }
                             </p>
                             {title && (
-                                <Button asChild className="bg-[#2f51a8] hover:bg-[#2f51a8]/90 text-white font-semibold">
+                                <Button asChild className="bg-[#361e01] hover:bg-[#361e01]/90 text-white font-semibold">
                                     <Link href="/dashboard/search">
                                         عرض جميع الكورسات
                                     </Link>

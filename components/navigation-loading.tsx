@@ -237,7 +237,7 @@ export const NavigationLoading = () => {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center animate-in fade-in duration-300">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#2f51a8] via-[#0066a8] to-[#004d7f] opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#fcfaed] via-[#e8e0c0] to-[#d4c8a0] opacity-90" />
       
       {/* Animated overlay patterns */}
       <div className="absolute inset-0 overflow-hidden">
@@ -258,38 +258,38 @@ export const NavigationLoading = () => {
         {/* Large animated spinner */}
         <div className="relative">
           {/* Outer rotating ring */}
-          <div className="w-24 h-24 rounded-full border-4 border-transparent border-t-white/30 border-r-white/30 animate-spin" style={{ animationDuration: "1.5s" }} />
+          <div className="w-24 h-24 rounded-full border-4 border-transparent border-t-[#361e01]/30 border-r-[#361e01]/30 animate-spin" style={{ animationDuration: "1.5s" }} />
           
           {/* Middle ring */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full border-4 border-transparent border-b-cyan-300/50 border-l-cyan-300/50 animate-spin" style={{ animationDuration: "1s", animationDirection: "reverse" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full border-4 border-transparent border-b-[#361e01]/50 border-l-[#361e01]/50 animate-spin" style={{ animationDuration: "1s", animationDirection: "reverse" }} />
           
           {/* Inner pulsing circle */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-white/20 to-cyan-200/20 animate-pulse" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-[#361e01]/20 to-[#361e01]/40 animate-pulse" />
           
           {/* Center dot */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white shadow-lg" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#361e01] shadow-lg" />
         </div>
 
         {/* Loading text with gradient */}
         <div className="text-center space-y-3">
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent animate-pulse">
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-[#361e01] via-[#361e01]/80 to-[#361e01] bg-clip-text text-transparent animate-pulse">
             جاري تحميل الصفحة
           </h2>
-          <p className="text-white/80 text-sm font-medium">
+          <p className="text-[#361e01]/80 text-sm font-medium">
             لحظة واحدة من فضلك...
           </p>
         </div>
 
         {/* Animated progress dots */}
         <div className="flex items-center space-x-2 rtl:space-x-reverse">
-          <div className="w-3 h-3 bg-white rounded-full animate-bounce shadow-lg" style={{ animationDelay: "0s", animationDuration: "1.4s" }} />
-          <div className="w-3 h-3 bg-cyan-200 rounded-full animate-bounce shadow-lg" style={{ animationDelay: "0.2s", animationDuration: "1.4s" }} />
-          <div className="w-3 h-3 bg-white rounded-full animate-bounce shadow-lg" style={{ animationDelay: "0.4s", animationDuration: "1.4s" }} />
+          <div className="w-3 h-3 bg-[#361e01] rounded-full animate-bounce shadow-lg" style={{ animationDelay: "0s", animationDuration: "1.4s" }} />
+          <div className="w-3 h-3 bg-[#361e01]/70 rounded-full animate-bounce shadow-lg" style={{ animationDelay: "0.2s", animationDuration: "1.4s" }} />
+          <div className="w-3 h-3 bg-[#361e01] rounded-full animate-bounce shadow-lg" style={{ animationDelay: "0.4s", animationDuration: "1.4s" }} />
         </div>
 
         {/* Subtle progress bar with pulsing effect */}
-        <div className="w-64 h-1 bg-white/20 rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-white/40 via-white to-white/40 w-full animate-pulse" />
+        <div className="w-64 h-1 bg-[#361e01]/20 rounded-full overflow-hidden">
+          <div className="h-full bg-gradient-to-r from-[#361e01]/40 via-[#361e01] to-[#361e01]/40 w-full animate-pulse" />
         </div>
       </div>
     </div>

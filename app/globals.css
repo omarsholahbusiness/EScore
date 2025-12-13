@@ -60,7 +60,7 @@ body,
   --card-foreground: oklch(0.129 0.042 144.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 144.695);
-  --primary: oklch(0.208 0.042 145.755);
+  --primary: oklch(0.15 0.06 45);
   --primary-foreground: oklch(0.984 0.003 127.858);
   --secondary: oklch(0.968 0.007 127.896);
   --secondary-foreground: oklch(0.208 0.042 145.755);
@@ -79,7 +79,7 @@ body,
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.984 0.003 127.858);
   --sidebar-foreground: oklch(0.129 0.042 144.695);
-  --sidebar-primary: oklch(0.208 0.042 145.755);
+  --sidebar-primary: oklch(0.15 0.06 45);
   --sidebar-primary-foreground: oklch(0.984 0.003 127.858);
   --sidebar-accent: oklch(0.968 0.007 127.896);
   --sidebar-accent-foreground: oklch(0.208 0.042 145.755);
@@ -127,10 +127,10 @@ body,
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-noto-sans-arabic), var(--font-geist-sans), system-ui, sans-serif;
+    font-family: var(--font-cairo), var(--font-geist-sans), system-ui, sans-serif;
   }
   :lang(ar) {
-    font-family: var(--font-noto-sans-arabic), system-ui, sans-serif;
+    font-family: var(--font-cairo), system-ui, sans-serif;
     letter-spacing: 0;
     line-height: 1.6;
   }
@@ -163,5 +163,5 @@ body,
 
 /* Ensure the font is applied to all text */
 * {
-  font-family: var(--font-playpen-sans-arabic), system-ui, sans-serif;
+  font-family: var(--font-cairo), system-ui, sans-serif;
 }

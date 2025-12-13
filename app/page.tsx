@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Users, BookOpen, Award, ChevronDown } from "lucide-react";
+import { ArrowRight, ArrowLeft, Star, Users, BookOpen, Award, ChevronDown, Facebook, Lightbulb, Heart, Check, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Navbar } from "@/components/navbar";
@@ -97,27 +97,156 @@ export default function HomePage() {
       <Navbar />
       <ScrollProgress />
       {/* Hero Section */}
-      <section id="hero-section" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0 bg-gradient-to-t from-[#2f51a8]/25 via-[#2f51a8]/10 to-transparent">
+      <section id="hero-section" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24 bg-white">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 items-center">
-          {/* Image Section - First on mobile */}
+          {/* Image Section - Second on mobile */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative flex justify-center items-center order-1 md:order-2"
+            className="relative flex justify-center items-center order-2 md:order-2"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
+            {/* Background Image */}
+            <div className="absolute top-[380px] md:top-0 left-1/2 -translate-x-1/2 md:-translate-y-[55px] -translate-y-1/2 md:translate-y-0 flex items-center justify-center z-0 w-[120%] h-[120%] md:w-[110%] md:h-[110%]">
               <Image
-                src="/teacher-image.png"
-                alt="مصطفي صلاح"
+                src="/background.png"
+                alt="background"
                 fill
-                priority
-                className="object-cover object-[center_25%] rounded-full border-4 border-[#2f51a8]/20 shadow-lg"
-                sizes="(max-width: 768px) 256px, 320px"
+                className="object-contain"
+                sizes="(max-width: 768px) 120vw, 55vw"
+                priority={false}
               />
             </div>
             
-            {/* Floating Stationery Items */}
+            {/* Mobile: All items in one vertical column */}
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-6 md:flex-wrap py-8 md:py-12">
+              {/* Teacher 1 - Medium size */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex flex-col items-center"
+              >
+                <div className="relative w-48 h-48 md:w-56 md:h-56 mb-3">
+                  <Image
+                    src="/teacher-image.png"
+                    alt="علاء الجبيلي"
+                    fill
+                    priority
+                    className="object-cover rounded-full border-4 border-[#361e01]/20 shadow-lg"
+                    sizes="(max-width: 768px) 192px, 224px"
+                  />
+                </div>
+                <p className="text-xl md:text-2xl font-bold font-playpen-sans-arabic" style={{ color: '#361e01', fontFamily: 'var(--font-playpen-sans-arabic)' }}>
+                  علاء الجبيلي
+                </p>
+              </motion.div>
+
+              {/* Teacher 2 - Largest size */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-col items-center"
+              >
+                <div className="relative w-56 h-56 md:w-72 md:h-72 mb-3">
+                  <Image
+                    src="/teacher-image2.png"
+                    alt="كريم الزيات"
+                    fill
+                    className="object-cover rounded-full border-4 border-[#361e01]/20 shadow-lg"
+                    sizes="(max-width: 768px) 224px, 288px"
+                  />
+                </div>
+                <p className="text-xl md:text-2xl font-bold font-playpen-sans-arabic" style={{ color: '#361e01', fontFamily: 'var(--font-playpen-sans-arabic)' }}>
+                  كريم الزيات
+                </p>
+              </motion.div>
+
+              {/* Teacher 3 - Same size as first */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="flex flex-col items-center -mt-8 md:mt-0"
+              >
+                <div className="relative w-48 h-48 md:w-56 md:h-56 mb-3">
+                  <Image
+                    src="/teacher-image3.png"
+                    alt="رضا مطراوي"
+                    fill
+                    className="object-cover rounded-full border-4 border-[#361e01]/20 shadow-lg"
+                    sizes="(max-width: 768px) 192px, 224px"
+                  />
+                </div>
+                <p className="text-xl md:text-2xl font-bold font-playpen-sans-arabic" style={{ color: '#361e01', fontFamily: 'var(--font-playpen-sans-arabic)' }}>
+                  رضا مطراوي
+                </p>
+              </motion.div>
+
+              {/* Mobile: Static Cards Below Teacher Circles */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                className="md:hidden w-full max-w-sm"
+              >
+                <div className="bg-[#fcfaed] rounded-lg border border-[#ab8302] px-4 py-3 flex items-center gap-3 shadow-md">
+                  <div className="w-10 h-10 bg-[#361e01] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/pi.png"
+                      alt="pi"
+                      width={24}
+                      height={24}
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-base font-bold" style={{ color: '#361e01' }}>لغتك قوتك</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+                className="md:hidden w-full max-w-sm"
+              >
+                <div className="bg-[#fcfaed] rounded-lg border border-[#ab8302] px-4 py-3 flex items-center gap-3 shadow-md">
+                  <div className="w-10 h-10 bg-[#361e01] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/calculator.png"
+                      alt="calculator"
+                      width={24}
+                      height={24}
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-base font-bold" style={{ color: '#361e01' }}>مستقبلك يبدأ هنا</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.0 }}
+                className="md:hidden w-full max-w-sm"
+              >
+                <div className="bg-[#fcfaed] rounded-lg border border-[#ab8302] px-4 py-3 flex items-center gap-3 shadow-md">
+                  <div className="w-10 h-10 bg-[#361e01] rounded-full flex items-center justify-center flex-shrink-0">
+                    <BookOpen className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-base font-bold" style={{ color: '#361e01' }}>لغة للنجاح</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+            
+            {/* Desktop: Floating Stationery Items */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ 
@@ -139,16 +268,23 @@ export default function HomePage() {
                   ease: "easeInOut"
                 }
               }}
-              className="absolute top-1 -right-2"
+              className="hidden md:block absolute top-1 -right-2"
               whileHover={{ scale: 1.1, rotate: 5 }}
             >
+              <div className="bg-[#fcfaed] rounded-lg border border-[#ab8302] px-4 py-3 flex items-center gap-3 shadow-md">
+                <div className="w-10 h-10 bg-[#361e01] rounded-full flex items-center justify-center flex-shrink-0">
               <Image
                 src="/pi.png"
                 alt="pi"
-                width={40}
-                height={40}
+                    width={24}
+                    height={24}
                 className="object-contain"
               />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-base font-bold" style={{ color: '#361e01' }}>لغتك قوتك</span>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -172,16 +308,23 @@ export default function HomePage() {
                   ease: "easeInOut"
                 }
               }}
-              className="absolute bottom-1/3 left-6"
+              className="hidden md:block absolute bottom-1/3 left-6"
               whileHover={{ scale: 1.1, rotate: -5 }}
             >
+              <div className="bg-[#fcfaed] rounded-lg border border-[#ab8302] px-4 py-3 flex items-center gap-3 shadow-md">
+                <div className="w-10 h-10 bg-[#361e01] rounded-full flex items-center justify-center flex-shrink-0">
               <Image
                 src="/calculator.png"
                 alt="calculator"
-                width={50}
-                height={50}
+                    width={24}
+                    height={24}
                 className="object-contain"
               />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-base font-bold" style={{ color: '#361e01' }}>مستقبلك يبدأ هنا</span>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -205,35 +348,79 @@ export default function HomePage() {
                   ease: "easeInOut"
                 }
               }}
-              className="absolute top-1/2 -right-6"
+              className="hidden md:block absolute top-1/2 -right-6"
               whileHover={{ scale: 1.1, rotate: 10 }}
             >
-              <Image
-                src="/notebook.png"
-                alt="دفتر"
-                width={55}
-                height={55}
-                className="object-contain"
-              />
+              <div className="bg-[#fcfaed] rounded-lg border border-[#ab8302] px-4 py-3 flex items-center gap-3 shadow-md">
+                <div className="w-10 h-10 bg-[#361e01] rounded-full flex items-center justify-center flex-shrink-0">
+                  <BookOpen className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-base font-bold" style={{ color: '#361e01' }}>لغة للنجاح</span>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 
-          {/* Text Section - Second on mobile */}
+          {/* Text Section - First on mobile */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mt-0 md:mt-0 order-2 md:order-1"
+            className="text-center mt-20 md:mt-0 order-1 md:order-1"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ color: '#2f51a8' }}>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ color: '#361e01' }}>
               منصة E Score
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-              طوّر لغتك… طوّر مستقبلك
+            <p className="text-xl md:text-2xl mb-4 font-bold" style={{ color: '#ab8302' }}>
+              طور_لغتك_طور_مستقبلك#
             </p>
-            <Button size="lg" asChild className="bg-[#2f51a8] hover:bg-[#2f51a8]/90 text-white">
+            
+            {/* Text Bubbles */}
+            <div className="flex flex-col gap-2 mb-6 max-w-sm mx-auto">
+              {/* First Bubble */}
+              <div className="bg-[#fcfaed] rounded-lg px-4 py-3 flex items-center gap-2 border border-[#361e01]/10">
+                <div className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+                <p className="text-sm md:text-base font-medium text-right" style={{ color: '#361e01' }}>
+                  مدرسين لغة إنجليزية معتمدين دوليا
+                </p>
+              </div>
+              
+              {/* Second Bubble */}
+              <div className="bg-[#fcfaed] rounded-lg px-4 py-3 flex items-center gap-2 border border-[#361e01]/10">
+                <div className="w-7 h-7 bg-[#ab8302] rounded-full flex items-center justify-center flex-shrink-0">
+                  <Star className="w-4 h-4 text-white fill-white" />
+                </div>
+                <p className="text-sm md:text-base font-medium text-right" style={{ color: '#361e01' }}>
+                  أكثر من7 سنين خبرة في تدريس مناهج اللغة الإنجليزية
+                </p>
+              </div>
+            </div>
+            
+            {/* Navigation Items */}
+            <div className="flex items-center justify-center gap-4 md:gap-6 mb-8 flex-wrap">
+              <div className="flex items-center gap-2 cursor-pointer">
+                <span className="text-base md:text-lg font-bold" style={{ color: '#361e01' }}>لغات</span>
+                <ChevronRight className="w-4 h-4" style={{ color: '#8b0000' }} />
+              </div>
+              <div className="flex items-center gap-2 cursor-pointer">
+                <span className="text-base md:text-lg font-bold" style={{ color: '#361e01' }}>مدارس عربي</span>
+                <ChevronRight className="w-4 h-4" style={{ color: '#006400' }} />
+              </div>
+              <div className="flex items-center gap-2 cursor-pointer">
+                <span className="text-base md:text-lg font-bold" style={{ color: '#361e01' }}>كورسات</span>
+                <ChevronRight className="w-4 h-4" style={{ color: '#006400' }} />
+              </div>
+            </div>
+            
+            <p className="text-lg md:text-xl mb-8" style={{ color: '#361e01' }}>
+              انضم إلينا في رحلتنا في <span style={{ color: '#ab8302' }}>2026</span>
+            </p>
+            <Button size="lg" asChild className="bg-[#361e01] hover:bg-[#361e01]/90 text-white mb-8">
               <Link href="/sign-up">
-                ابدأ الآن <ArrowRight className="mr-2 h-4 w-4" />
+                تسجيل الدخول <ArrowRight className="mr-2 h-4 w-4" />
               </Link>
             </Button>
           </motion.div>
@@ -273,8 +460,129 @@ export default function HomePage() {
         )}
       </section>
 
+      {/* Social Media Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#361e01' }}>
+              متابعينا على السوشيال ميديا
+            </h2>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex justify-center mb-8"
+            >
+              <svg
+                width="50"
+                height="30"
+                viewBox="0 0 50 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ color: '#ab8302' }}
+              >
+                <path
+                  d="M25 5 L25 25 M15 15 L25 25 L35 15"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </motion.div>
+          </motion.div>
+          
+          <div className="flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-[#fcfaed] rounded-xl p-6 shadow-lg hover:shadow-xl transition-all w-full max-w-sm border border-[#361e01]"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                    <Facebook className="h-8 w-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold" style={{ color: '#361e01' }}>1.5k</h3>
+                    <p className="text-lg font-semibold" style={{ color: '#361e01' }}>فيسبوك</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-6" dir="ltr">
+                <Link
+                  href="https://www.facebook.com/share/g/17eVUPDmLb/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-[#361e01] hover:bg-[#361e01]/90 rounded-full flex items-center justify-center transition-all hover:scale-110 flex-shrink-0"
+                >
+                  <ArrowLeft className="h-5 w-5 text-white" />
+                </Link>
+                <p className="text-lg font-semibold flex-1 text-right" style={{ color: '#361e01' }}>
+                  تابعنا من هنا
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Support Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-20 max-w-4xl mx-auto">
+            {/* Scientific Support Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="relative bg-[#fcfaed] rounded-xl p-6 border border-[#361e01] shadow-lg hover:shadow-xl transition-all"
+            >
+              <div className="absolute -top-6 right-6 w-16 h-16 bg-[#fcfaed] rounded-full border-2 border-[#361e01] flex items-center justify-center">
+                <Lightbulb className="h-8 w-8 text-yellow-500" />
+              </div>
+              <div className="mt-4">
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#361e01' }}>
+                  الدعم العلمي
+                </h3>
+                <p className="text-base" style={{ color: '#361e01' }}>
+                  مستعدين نجاوب على أسئلتك طول اليوم
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Psychological Support Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="relative bg-[#fcfaed] rounded-xl p-6 border border-[#361e01] shadow-lg hover:shadow-xl transition-all"
+            >
+              <div className="absolute -top-6 right-6 w-16 h-16 bg-[#fcfaed] rounded-full border-2 border-[#361e01] flex items-center justify-center">
+                <Heart className="h-8 w-8 text-red-600 fill-red-600" />
+              </div>
+              <div className="mt-4">
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#361e01' }}>
+                  الدعم النفسي
+                </h3>
+                <p className="text-base" style={{ color: '#361e01' }}>
+                  متفهمين حاجتك و معاك بشكل مستمر
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Courses Section */}
-      <section id="courses-section" className="py-20 bg-muted/50">
+      <section id="courses-section" className="py-20 bg-white">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -289,7 +597,7 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4">الكورسات المتاحة</h2>
+            <h2 className="text-3xl font-bold mb-4" style={{ color: '#361e01' }}>الكورسات المتاحة</h2>
             <p className="text-muted-foreground">اكتشف مجموعة متنوعة من الكورسات التعليمية المميزة</p>
           </motion.div>
 
@@ -305,7 +613,7 @@ export default function HomePage() {
               Array.from({ length: 6 }).map((_, index) => (
                 <div
                   key={index}
-                  className="w-full sm:w-80 md:w-72 lg:w-80 bg-card rounded-xl overflow-hidden border shadow-sm animate-pulse"
+                  className="w-full sm:w-80 md:w-72 lg:w-80 bg-card rounded-xl overflow-hidden border border-[#361e01] shadow-sm animate-pulse"
                 >
                   <div className="w-full aspect-video bg-muted" />
                   <div className="p-4 space-y-3">
@@ -328,7 +636,7 @@ export default function HomePage() {
                     <Button 
                       variant="outline" 
                       asChild
-                      className="bg-[#2f51a8] hover:bg-[#2f51a8]/90 text-white border-[#2f51a8]"
+                      className="bg-[#361e01] hover:bg-[#361e01]/90 text-white border-[#361e01]"
                     >
                       <Link href="/sign-up">
                         سجل الآن للوصول المبكر
@@ -344,7 +652,7 @@ export default function HomePage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group w-full sm:w-80 md:w-72 lg:w-80 bg-card rounded-xl overflow-hidden border shadow-sm hover:shadow-md transition-all"
+                    className="group w-full sm:w-80 md:w-72 lg:w-80 bg-card rounded-xl overflow-hidden border border-[#361e01] shadow-sm hover:shadow-md transition-all"
                   >
                     <div className="relative w-full aspect-video">
                       <Image
@@ -375,7 +683,7 @@ export default function HomePage() {
                         </div>
                       </div>
                       <Button 
-                        className="w-full bg-[#2f51a8] hover:bg-[#2f51a8]/90 text-white" 
+                        className="w-full bg-[#361e01] hover:bg-[#361e01]/90 text-white" 
                         variant="default"
                         asChild
                       >
@@ -393,7 +701,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -402,7 +710,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">آراء الطلاب</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#361e01' }}>آراء الطلاب</h2>
             <p className="text-muted-foreground">ماذا يقول طلابنا عن تجربتهم معنا</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -429,7 +737,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-card rounded-lg p-6 shadow-lg"
+                className="bg-[#fcfaed] rounded-lg p-6 shadow-lg border border-[#361e01]"
               >
                 <div className="flex items-center mb-4">
                   <div className="relative h-12 w-12 rounded-full overflow-hidden">
@@ -460,7 +768,7 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-20 bg-white">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -491,10 +799,10 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center p-6 rounded-xl bg-card border shadow-sm hover:shadow-md transition-all"
+              className="text-center p-6 rounded-xl bg-[#fcfaed] border border-[#361e01] shadow-sm hover:shadow-md transition-all"
             >
-              <div className="w-12 h-12 bg-[#2f51a8]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="h-6 w-6 text-[#2f51a8]" />
+              <div className="w-12 h-12 bg-[#361e01]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="h-6 w-6 text-[#361e01]" />
               </div>
               <h3 className="text-xl font-semibold mb-2">جودة عالية</h3>
               <p className="text-muted-foreground">أفضل منصة متخصصة لكورسات الانجليزي</p>
@@ -505,10 +813,10 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-center p-6 rounded-xl bg-card border shadow-sm hover:shadow-md transition-all"
+              className="text-center p-6 rounded-xl bg-[#fcfaed] border border-[#361e01] shadow-sm hover:shadow-md transition-all"
             >
-              <div className="w-12 h-12 bg-[#2f51a8]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-6 w-6 text-[#2f51a8]" />
+              <div className="w-12 h-12 bg-[#361e01]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-6 w-6 text-[#361e01]" />
               </div>
               <h3 className="text-xl font-semibold mb-2">مجتمع نشط</h3>
               <p className="text-muted-foreground">انضم إلى مجتمع من الطلاب النشطين والمتفوقين والأوائل</p>
@@ -519,10 +827,10 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-center p-6 rounded-xl bg-card border shadow-sm hover:shadow-md transition-all"
+              className="text-center p-6 rounded-xl bg-[#fcfaed] border border-[#361e01] shadow-sm hover:shadow-md transition-all"
             >
-              <div className="w-12 h-12 bg-[#2f51a8]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="h-6 w-6 text-[#2f51a8]" />
+              <div className="w-12 h-12 bg-[#361e01]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="h-6 w-6 text-[#361e01]" />
               </div>
               <h3 className="text-xl font-semibold mb-2">شهادات تقدير</h3>
               <p className="text-muted-foreground">احصل على شهادات تقدير عند إكمال الكورسات</p>
@@ -532,7 +840,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -541,11 +849,11 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">ابدأ رحلة التعلم معنا</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#361e01' }}>ابدأ رحلة التعلم معنا</h2>
             <p className="text-muted-foreground mb-8">
               انضم إلينا اليوم وابدأ رحلة النجاح
             </p>
-            <Button size="lg" asChild className="bg-[#2f51a8] hover:bg-[#2f51a8]/90 text-white">
+            <Button size="lg" asChild className="bg-[#361e01] hover:bg-[#361e01]/90 text-white">
               <Link href="/sign-up">
                 سجل الآن <ArrowRight className="mr-2 h-4 w-4" />
               </Link>

@@ -172,7 +172,7 @@ export default function PurchasePage({
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#2f51a8]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#361e01]"></div>
       </div>
     );
   }
@@ -316,7 +316,7 @@ export default function PurchasePage({
             </CardHeader>
             <CardContent>
               {isLoadingBalance ? (
-                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-[#2f51a8]"></div>
+                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-[#361e01]"></div>
               ) : (
                 <div className="space-y-2">
                   <div className="text-xl font-bold">
@@ -345,7 +345,7 @@ export default function PurchasePage({
                   <p className="text-amber-700 mb-4">
                     تحتاج إلى {(finalPrice - userBalance).toFixed(2)} جنيه إضافية لشراء هذه الكورس
                   </p>
-                  <Button asChild className="bg-[#2f51a8] hover:bg-[#2f51a8]/90">
+                  <Button asChild className="bg-[#361e01] hover:bg-[#361e01]/90">
                     <Link href="/dashboard/balance">إضافة رصيد</Link>
                   </Button>
                 </CardContent>

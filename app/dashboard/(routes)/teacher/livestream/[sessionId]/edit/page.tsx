@@ -387,7 +387,7 @@ const EditLivestreamPage = () => {
                             </Button>
                             <Button
                                 type="submit"
-                                className="bg-[#2f51a8] hover:bg-[#2f51a8]/90"
+                                className="bg-[#361e01] hover:bg-[#361e01]/90"
                                 disabled={saving}
                             >
                                 {saving ? "جاري الحفظ..." : "حفظ التغييرات"}

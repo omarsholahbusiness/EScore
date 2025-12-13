@@ -21,13 +21,8 @@ export async function POST(req: Request) {
       return new NextResponse("Missing required fields", { status: 400 });
     }
 
-    // Verify reCAPTCHA if secret key is configured
-    if (process.env.RECAPTCHA_SECRET_KEY) {
-      if (!recaptchaToken) {
-        console.error("[REGISTER] reCAPTCHA token missing");
-        return new NextResponse("reCAPTCHA verification required", { status: 400 });
-      }
-
+    // Verify reCAPTCHA if secret key is configured and token is provided
+    if (process.env.RECAPTCHA_SECRET_KEY && recaptchaToken) {
       try {
         console.log("[REGISTER] Verifying reCAPTCHA token...");
         const verifyResponse = await fetch("https://www.google.com/recaptcha/api/siteverify", {

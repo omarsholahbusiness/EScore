@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,17 +17,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ReCaptchaV2, ReCaptchaV2Ref } from "@/components/recaptcha-v2";
 
 export default function SignUpPage() {
   const router = useRouter();
-  const recaptchaRef = useRef<ReCaptchaV2Ref>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [recaptchaSiteKey] = useState(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "");
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const [recaptchaError, setRecaptchaError] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -107,17 +102,6 @@ export default function SignUpPage() {
 
   const passwordChecks = validatePasswords();
 
-  const handleRecaptchaVerify = (token: string) => {
-    console.log("[SIGNUP] reCAPTCHA verified, token received:", token ? "Yes" : "No");
-    setRecaptchaToken(token);
-    setRecaptchaError(false);
-  };
-
-  const handleRecaptchaExpire = () => {
-    setRecaptchaToken(null);
-    setRecaptchaError(true);
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
@@ -128,19 +112,9 @@ export default function SignUpPage() {
       return;
     }
 
-    // Check reCAPTCHA if site key is configured
-    if (recaptchaSiteKey && !recaptchaToken) {
-      toast.error("يرجى التحقق من أنك لست روبوت");
-      setRecaptchaError(true);
-      setIsLoading(false);
-      return;
-    }
-
     try {
-      // Proceed with registration (reCAPTCHA will be verified in the register endpoint)
       const response = await axios.post("/api/auth/register", {
         ...formData,
-        recaptchaToken, // Include token in registration request
       });
       
       if (response.data.success) {
@@ -166,30 +140,6 @@ export default function SignUpPage() {
           toast.error("كلمات المرور غير متطابقة");
         } else if (errorMessage.includes("Missing required fields")) {
           toast.error("يرجى ملء جميع الحقول المطلوبة");
-        } else if (errorMessage.includes("reCAPTCHA verification required")) {
-          toast.error("يرجى التحقق من أنك لست روبوت");
-          setRecaptchaToken(null);
-          setRecaptchaError(true);
-          // Reset reCAPTCHA widget
-          if (recaptchaRef.current) {
-            recaptchaRef.current.reset();
-          }
-        } else if (errorMessage.includes("reCAPTCHA token expired") || errorMessage.includes("reCAPTCHA token is invalid")) {
-          toast.error("انتهت صلاحية التحقق. يرجى التحقق مرة أخرى");
-          setRecaptchaToken(null);
-          setRecaptchaError(true);
-          // Reset reCAPTCHA widget so user can verify again
-          if (recaptchaRef.current) {
-            recaptchaRef.current.reset();
-          }
-        } else if (errorMessage.includes("reCAPTCHA")) {
-          toast.error("فشل التحقق من أنك لست روبوت. يرجى المحاولة مرة أخرى");
-          setRecaptchaToken(null);
-          setRecaptchaError(true);
-          // Reset reCAPTCHA widget
-          if (recaptchaRef.current) {
-            recaptchaRef.current.reset();
-          }
         } else {
           toast.error(`حدث خطأ أثناء إنشاء الحساب: ${errorMessage}`);
         }
@@ -212,8 +162,8 @@ export default function SignUpPage() {
       </div>
       
       {/* Right Side - Image */}
-      <div className="hidden lg:flex flex-1 bg-gradient-to-br from-[#2f51a8]/10 to-[#2f51a8]/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#2f51a8]/5"></div>
+      <div className="hidden lg:flex flex-1 bg-gradient-to-br from-[#361e01]/10 to-[#361e01]/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[#361e01]/5"></div>
         <div className="relative z-10 flex items-center justify-center w-full">
           <div className="text-center space-y-6 p-8">
             <div className="relative w-64 h-64 mx-auto">
@@ -221,12 +171,12 @@ export default function SignUpPage() {
                 src="/logo.png"
                 alt="Teacher"
                 fill
-                className="object-cover rounded-full border-4 border-[#2f51a8]/20 shadow-2xl"
+                className="object-cover rounded-full border-4 border-[#361e01]/20 shadow-2xl"
                 unoptimized
               />
             </div>
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-[#2f51a8]">
+              <h3 className="text-2xl font-bold text-[#361e01]">
                 مرحباً بك في E Score التعليمية
               </h3>
               <p className="text-lg text-muted-foreground max-w-md">
@@ -469,29 +419,10 @@ export default function SignUpPage() {
               </div>
             </div>
 
-            {/* reCAPTCHA v2 Checkbox */}
-            {recaptchaSiteKey && (
-              <div className="space-y-2">
-                {recaptchaError && (
-                  <p className="text-sm text-red-500 text-center">
-                    يرجى التحقق من أنك لست روبوت
-                  </p>
-                )}
-                <ReCaptchaV2
-                  ref={recaptchaRef}
-                  siteKey={recaptchaSiteKey}
-                  onVerify={handleRecaptchaVerify}
-                  onExpire={handleRecaptchaExpire}
-                  theme="light"
-                  size="normal"
-                />
-              </div>
-            )}
-
             <Button
               type="submit"
-              className="w-full h-10 bg-[#2f51a8] hover:bg-[#2f51a8]/90 text-white"
-              disabled={isLoading || !passwordChecks.isValid || (recaptchaSiteKey && !recaptchaToken)}
+              className="w-full h-10 bg-[#361e01] hover:bg-[#361e01]/90 text-white"
+              disabled={isLoading || !passwordChecks.isValid}
             >
               {isLoading ? "جاري إنشاء الحساب..." : "إنشاء حساب"}
             </Button>

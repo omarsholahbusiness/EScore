@@ -19,6 +19,7 @@ const config = {
     },
     extend: {
       fontFamily: {
+        'cairo': ['var(--font-cairo)'],
         'playpen-sans-arabic': ['var(--font-playpen-sans-arabic)'],
       },
       colors: {

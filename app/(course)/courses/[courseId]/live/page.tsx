@@ -136,7 +136,7 @@ const LiveSessionsPage = () => {
                                                         onClick={() => {
                                                             window.open(session.linkUrl, "_blank", "noopener,noreferrer");
                                                         }}
-                                                        className="bg-[#2f51a8] hover:bg-[#2f51a8]/90"
+                                                        className="bg-[#361e01] hover:bg-[#361e01]/90"
                                                     >
                                                         <ExternalLink className="mr-2 h-4 w-4" />
                                                         انضم إلى البث

@@ -208,7 +208,7 @@ export default function QuizPage({
     if (loading && !redirectToResult) {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#2f51a8]"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#361e01]"></div>
             </div>
         );
     }
@@ -217,7 +217,7 @@ export default function QuizPage({
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <div className="text-center">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#2f51a8] mx-auto mb-4"></div>
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#361e01] mx-auto mb-4"></div>
                     <p className="text-muted-foreground">جاري تحميل النتيجة...</p>
                 </div>
             </div>
@@ -280,7 +280,7 @@ export default function QuizPage({
                             <div className="space-y-3">
                                 <div className="w-full bg-gray-200 rounded-full h-2">
                                     <div 
-                                    className="bg-[#2f51a8] h-2 rounded-full transition-all duration-300"
+                                    className="bg-[#361e01] h-2 rounded-full transition-all duration-300"
                                         style={{ width: `${progress}%` }}
                                     ></div>
                                 </div>
@@ -376,14 +376,14 @@ export default function QuizPage({
                                 <Button
                                     onClick={handleSubmit}
                                     disabled={submitting}
-                                    className="bg-[#2f51a8] hover:bg-[#2f51a8]/90"
+                                    className="bg-[#361e01] hover:bg-[#361e01]/90"
                                 >
                                     {submitting ? "جاري الإرسال..." : "إنهاء الاختبار"}
                                 </Button>
                             ) : (
                                 <Button
                                     onClick={() => setCurrentQuestion(currentQuestion + 1)}
-                                    className="bg-[#2f51a8] hover:bg-[#2f51a8]/90"
+                                    className="bg-[#361e01] hover:bg-[#361e01]/90"
                                 >
                                     التالي
                                 </Button>

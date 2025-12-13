@@ -471,7 +471,7 @@ export default function CreateAccountPage() {
                   <Button
                     type="submit"
                     disabled={isLoading || !passwordChecks.isValid}
-                    className="flex-1 bg-[#2f51a8] hover:bg-[#2f51a8]/90 text-white"
+                    className="flex-1 bg-[#361e01] hover:bg-[#361e01]/90 text-white"
                   >
                     {isLoading ? "جاري الإنشاء..." : "إنشاء الحساب"}
                   </Button>

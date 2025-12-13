@@ -20,7 +20,7 @@ export function LiveEmbed({ linkUrl, linkType, isActive = false }: LiveEmbedProp
             window.open(linkUrl, "_blank", "noopener,noreferrer");
           }}
           disabled={!isActive}
-          className="bg-[#2f51a8] hover:bg-[#2f51a8]/90 text-white px-8 py-6 text-lg"
+          className="bg-[#361e01] hover:bg-[#361e01]/90 text-white px-8 py-6 text-lg"
           size="lg"
         >
           <ExternalLink className="mr-2 h-5 w-5" />

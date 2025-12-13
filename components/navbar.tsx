@@ -15,7 +15,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div className="fixed top-0 w-full z-50 bg-[#fcfaed]">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -34,14 +34,14 @@ export const Navbar = () => {
           <div className="flex items-center gap-4">
             {!session ? (
               <>
-                <Button className="bg-[#2f51a8] hover:bg-[#2f51a8]/90 text-white" asChild>
+                <Button className="bg-[#361e01] hover:bg-[#361e01]/90 text-white" asChild>
                   <Link href="/sign-up">انشاء الحساب</Link>
                 </Button>
                 <Button
                   size="sm"
                   variant="outline"
                   asChild
-                  className="border-[#2f51a8] text-[#2f51a8] hover:bg-[#2f51a8]/10"
+                  className="border-[#361e01] text-[#361e01] hover:bg-[#361e01]/10"
                 >
                   <Link href="/sign-in">تسجيل الدخول</Link>
                 </Button>

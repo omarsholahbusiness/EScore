@@ -128,7 +128,7 @@ export default function BalancePage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="text-3xl font-bold text-[#2f51a8]">
+          <div className="text-3xl font-bold text-[#361e01]">
             {balance.toFixed(2)} جنيه
           </div>
         </CardContent>
@@ -149,12 +149,12 @@ export default function BalancePage() {
           {/* Vodafone Cash */}
           <div className="p-4 border rounded-lg bg-card hover:bg-accent/5 transition-colors">
             <div className="flex items-start gap-3">
-              <div className="p-2 bg-[#2f51a8]/10 rounded-full">
-                <CreditCard className="h-5 w-5 text-[#2f51a8]" />
+              <div className="p-2 bg-[#361e01]/10 rounded-full">
+                <CreditCard className="h-5 w-5 text-[#361e01]" />
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-lg mb-1">فودافون كاش</h3>
-                <p className="text-2xl font-bold text-[#2f51a8] mb-2" dir="ltr">01285949747</p>
+                <p className="text-2xl font-bold text-[#361e01] mb-2" dir="ltr">01285949747</p>
                 <p className="text-sm text-muted-foreground">
                   قم بتحويل المبلغ المطلوب عبر فودافون كاش
                 </p>
@@ -163,19 +163,19 @@ export default function BalancePage() {
           </div>
 
           {/* Confirmation Instructions */}
-          <div className="p-4 border-2 border-[#2f51a8]/20 rounded-lg bg-[#2f51a8]/5">
+          <div className="p-4 border-2 border-[#361e01]/20 rounded-lg bg-[#361e01]/5">
             <div className="flex items-start gap-3">
-              <div className="p-2 bg-[#2f51a8]/10 rounded-full">
-                <Send className="h-5 w-5 text-[#2f51a8]" />
+              <div className="p-2 bg-[#361e01]/10 rounded-full">
+                <Send className="h-5 w-5 text-[#361e01]" />
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-lg mb-2 text-[#2f51a8]">تأكيد الدفع</h3>
+                <h3 className="font-semibold text-lg mb-2 text-[#361e01]">تأكيد الدفع</h3>
                 <p className="text-sm mb-3">
                   بعد إتمام عملية التحويل، يرجى إرسال صورة التحويل إلى أرقام الدعم الفني:
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-[#2f51a8]"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#361e01]"></div>
                     <span className="font-semibold" dir="ltr">0104 054 8449</span>
                   </div>
                 </div>
@@ -227,7 +227,7 @@ export default function BalancePage() {
               <Button 
                 onClick={handleAddBalance}
                 disabled={isLoading}
-                className="bg-[#2f51a8] hover:bg-[#2f51a8]/90"
+                className="bg-[#361e01] hover:bg-[#361e01]/90"
               >
                 {isLoading ? "جاري الإضافة..." : "إضافة الرصيد"}
               </Button>
@@ -250,7 +250,7 @@ export default function BalancePage() {
         <CardContent>
           {isLoadingTransactions ? (
             <div className="text-center py-8">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#2f51a8] mx-auto"></div>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#361e01] mx-auto"></div>
               <p className="mt-2 text-muted-foreground">جاري التحميل...</p>
             </div>
           ) : transactions.length === 0 ? (

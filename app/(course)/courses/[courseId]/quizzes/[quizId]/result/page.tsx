@@ -206,7 +206,7 @@ export default function QuizResultPage({
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#2f51a8]"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#361e01]"></div>
             </div>
         );
     }
@@ -351,7 +351,7 @@ export default function QuizResultPage({
                                 onClick={handleRetry}
                                 disabled={isRetrying}
                                 variant="outline"
-                                className="border-[#2f51a8] text-[#2f51a8] hover:bg-[#2f51a8] hover:text-white"
+                                className="border-[#361e01] text-[#361e01] hover:bg-[#361e01] hover:text-white"
                             >
                                 <RotateCcw className="h-4 w-4 mr-2" />
                                 {isRetrying ? "جاري التحضير..." : `إعادة المحاولة (${result.totalAttempts || 0}/${result.maxAttempts})`}
@@ -359,7 +359,7 @@ export default function QuizResultPage({
                         )}
                         <Button
                             onClick={handleNextChapter}
-                            className="bg-[#2f51a8] hover:bg-[#2f51a8]/90"
+                            className="bg-[#361e01] hover:bg-[#361e01]/90"
                         >
                             {willRedirectToDashboard ? "لوحة التحكم" : "الفصل التالي"}
                         </Button>

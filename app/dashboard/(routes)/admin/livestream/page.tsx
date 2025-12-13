@@ -134,7 +134,7 @@ const LivestreamPage = () => {
                 <CardHeader>
                     <div className="flex items-center justify-between">
                         <CardTitle>البث المباشر</CardTitle>
-                        <Button asChild className="bg-[#2f51a8] hover:bg-[#2f51a8]/90">
+                        <Button asChild className="bg-[#361e01] hover:bg-[#361e01]/90">
                             <Link href="/dashboard/admin/livestream/create">
                                 <Plus className="mr-2 h-4 w-4" />
                                 إنشاء جلسة جديدة

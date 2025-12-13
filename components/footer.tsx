@@ -29,8 +29,8 @@ export const Footer = () => {
             ? 'md:rtl:pr-56 md:ltr:pl-56 lg:rtl:pr-80 lg:ltr:pl-80' 
             : ''
         }`}>
-          <div className="inline-block bg-[#2f51a8]/10 border-2 border-[#2f51a8]/20 rounded-lg px-6 py-3 mb-4">
-            <p className="font-semibold text-lg text-[#2f51a8]">واتساب : 01285949747</p>
+          <div className="inline-block bg-[#361e01]/10 border-2 border-[#361e01]/20 rounded-lg px-6 py-3 mb-4">
+            <p className="font-semibold text-lg text-[#361e01]">واتساب : 01285949747</p>
           </div>
           
           <p>© {new Date().getFullYear()} Mordesu Studio. جميع الحقوق محفوظة</p>
