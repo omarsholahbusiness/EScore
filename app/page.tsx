@@ -152,14 +152,14 @@ export default function HomePage() {
                 <div className="relative w-56 h-56 md:w-72 md:h-72 mb-3">
                   <Image
                     src="/teacher-image2.png"
-                    alt="كريم الزيات"
+                    alt="عبد الكريم الزيات"
                     fill
                     className="object-cover rounded-full border-4 border-[#361e01]/20 shadow-lg"
                     sizes="(max-width: 768px) 224px, 288px"
                   />
                 </div>
                 <p className="text-xl md:text-2xl font-bold font-playpen-sans-arabic" style={{ color: '#361e01', fontFamily: 'var(--font-playpen-sans-arabic)' }}>
-                  كريم الزيات
+                  عبد الكريم الزيات
                 </p>
               </motion.div>
 
@@ -173,14 +173,14 @@ export default function HomePage() {
                 <div className="relative w-48 h-48 md:w-56 md:h-56 mb-3">
                   <Image
                     src="/teacher-image3.png"
-                    alt="رضا مطراوي"
+                    alt="رضا المطراوي"
                     fill
                     className="object-cover rounded-full border-4 border-[#361e01]/20 shadow-lg"
                     sizes="(max-width: 768px) 192px, 224px"
                   />
                 </div>
                 <p className="text-xl md:text-2xl font-bold font-playpen-sans-arabic" style={{ color: '#361e01', fontFamily: 'var(--font-playpen-sans-arabic)' }}>
-                  رضا مطراوي
+                  رضا المطراوي
                 </p>
               </motion.div>
 
@@ -394,7 +394,7 @@ export default function HomePage() {
                   <Star className="w-4 h-4 text-white fill-white" />
                 </div>
                 <p className="text-sm md:text-base font-medium text-right" style={{ color: '#361e01' }}>
-                  أكثر من7 سنين خبرة في تدريس مناهج اللغة الإنجليزية
+                  أكثر من25 سنين خبرة في تدريس مناهج اللغة الإنجليزية
                 </p>
               </div>
             </div>
