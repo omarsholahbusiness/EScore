@@ -367,11 +367,18 @@ export default function HomePage() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mt-20 md:mt-0 order-1 md:order-1"
+            className="text-center order-1 md:order-1"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ color: '#361e01' }}>
-              منصة E Score
-            </h1>
+            <div className="mb-4 flex justify-center">
+              <Image
+                src="/logo.png"
+                alt="منصة E Score"
+                width={700}
+                height={700}
+                className="w-auto h-[360px] md:h-[542px]"
+                unoptimized
+              />
+            </div>
             <p className="text-xl md:text-2xl mb-4 font-bold" style={{ color: '#ab8302' }}>
               طور_لغتك_طور_مستقبلك#
             </p>
